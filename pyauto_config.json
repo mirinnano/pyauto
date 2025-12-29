@@ -1,0 +1,21 @@
+{
+  "discord_webhook_url": "",
+  "global_action_key": "e",
+  "hold_duration": 1.2,
+  "notify_on_error": true,
+  "notify_on_failure": false,
+  "notify_on_success": true,
+  "rules": [
+    {
+      "cooldown": 2,
+      "id": "7mcz3x99o",
+      "trigger_text": [
+        "Legendary",
+        "Mythic",
+        "Brainrot God",
+        "Secret"
+      ]
+    }
+  ],
+  "target_window": "Fortnite"
+}

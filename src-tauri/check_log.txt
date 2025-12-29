@@ -1,0 +1,183 @@
+cargo :     Checking tauri-
+app v0.1.0 (C:\Users\mirin\
+Desktop\pyauto\src-tauri)
+???? ?:1 ??:1
++ cargo check 2>&1 | Out-Fi
+le -Encoding ascii check_lo
+g.txt
++ ~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (     
+   Checking ta...auto\sr   
+ c-tauri):String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+error: cannot find macro `_
+_cmd__get_machine_id` in th
+is scope
+   --> src\lib.rs:227:13
+    |
+195 | #[tauri::command]
+    | ----------------- sim
+ilarly named macro `__cmd__
+get_config` defined here
+...
+227 |             get_machi
+ne_id,
+    |             ^^^^^^^^^
+^^^^^ help: a macro with a 
+similar name exists: `__cmd
+__get_config`
+
+error: cannot find macro `_
+_cmd__verify_activation_key
+` in this scope
+   --> src\lib.rs:228:13
+    |
+228 |             verify_ac
+tivation_key,
+    |             ^^^^^^^^^
+^^^^^^^^^^^^
+
+error: cannot find macro `_
+_cmd__generate_admin_keys` 
+in this scope
+   --> src\lib.rs:229:13
+    |
+229 |             generate_
+admin_keys
+    |             ^^^^^^^^^
+^^^^^^^^^^
+
+warning: unused import: `sh
+a2::Sha256`
+ --> src\engine\license.rs:
+4:5
+  |
+4 | use sha2::Sha256;
+  |     ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_im
+ports)]` (part of `#[warn(u
+nused)]`) on by default
+
+warning: unused import: `st
+d::fs`
+ --> src\engine\license.rs:
+5:5
+  |
+5 | use std::fs;
+  |     ^^^^^^^
+
+warning: unused import: `wi
+ndows::Foundation::Collecti
+ons::IVectorView`
+ --> src\engine\ocr.rs:2:5
+  |
+2 | use windows::Foundation
+::Collections::IVectorView;
+  |     ^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Bi
+tmapAlphaMode`
+ --> src\engine\ocr.rs:4:34
+  |
+4 | use windows::Graphics::
+Imaging::{BitmapAlphaMode, 
+BitmapPixelFormat, Software
+Bitmap};
+  |                        
+          ^^^^^^^^^^^^^^^
+
+warning: unused imports: `O
+crLine` and `OcrResult`
+ --> src\engine\ocr.rs:5:54
+  |
+5 | use windows::Media::Ocr
+::{OcrEngine as WinOcrEngin
+e, OcrLine, OcrResult};
+  |                        
+                           
+   ^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `wi
+ndows::Storage::Streams::Da
+taWriter`
+ --> src\engine\ocr.rs:6:5
+  |
+6 | use windows::Storage::S
+treams::DataWriter; // Remo
+ved InMemoryRandomAccessStr
+eam if unused or use it?
+  |     ^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `wi
+ndows::Storage::Streams::In
+MemoryRandomAccessStream`
+  --> src\engine\ocr.rs:11:
+5
+   |
+11 | use windows::Storage::
+Streams::InMemoryRandomAcce
+ssStream;
+   |     ^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^
+
+warning: unused import: `Oc
+rData`
+  --> src\engine\mod.rs:16:
+17
+   |
+16 | use self::ocr::{OcrDat
+a, OcrEngine};
+   |                 ^^^^^^
+^
+
+warning: unused imports: `E
+xtendedColorType`, `ImageEn
+coder`, `Rgba`, and `imageo
+ps`
+  --> src\engine\mod.rs:18:
+13
+   |
+18 | use image::{imageops, 
+ExtendedColorType, ImageBuf
+fer, ImageEncoder, Rgba};
+   |             ^^^^^^^^  
+^^^^^^^^^^^^^^^^^          
+     ^^^^^^^^^^^^  ^^^^
+
+warning: unused import: `en
+gine::license`
+ --> src\lib.rs:9:5
+  |
+9 | use engine::license;
+  |     ^^^^^^^^^^^^^^^
+
+warning: unused variable: `
+range`
+   --> src\engine\mod.rs:56
+9:9
+    |
+569 |     let range = max_v
+al - min_val;
+    |         ^^^^^ help: i
+f this is intentional, pref
+ix it with an underscore: `
+_range`
+    |
+    = note: `#[warn(unused_
+variables)]` (part of `#[wa
+rn(unused)]`) on by default
+
+warning: `tauri-app` (lib) 
+generated 11 warnings
+error: could not compile `t
+auri-app` (lib) due to 3 pr
+evious errors; 11 warnings 
+emitted

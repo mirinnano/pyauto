@@ -1,0 +1,20 @@
+{
+  "global_action_key": "e",
+  "hold_duration": 1.2,
+  "rules": [
+    {
+      "cooldown": 2,
+      "id": "1766997754088vth",
+      "max_value": 100000,
+      "min_value": 1,
+      "trigger_text": [
+        "Epic",
+        "Legendary",
+        "Mythic",
+        "Brainrot God",
+        "Secret"
+      ]
+    }
+  ],
+  "target_window": "Fortnite  "
+}

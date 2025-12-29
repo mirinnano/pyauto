@@ -1,0 +1,8 @@
+mss
+numpy
+pygetwindow
+pydirectinput
+easyocr
+torch
+torchvision
+torchaudio

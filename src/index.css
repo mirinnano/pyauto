@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-inner: #0a0a0a;
+  --color-dark-accent: #1a1a1a;
+  --color-primary-glow: #00ccff;
+
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+    }
+
+    to {
+      box-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff;
+    }
+  }
+}
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Premium Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-border {
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+}

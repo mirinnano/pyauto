@@ -1,0 +1,33 @@
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
+# Rust / Tauri
+src-tauri/target/
+src-tauri/gen/
+src-tauri/tauri.key
+src-tauri/.antigravity_master
+.antigravity_master
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
