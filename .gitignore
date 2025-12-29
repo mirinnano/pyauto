@@ -10,6 +10,9 @@ src-tauri/gen/
 src-tauri/tauri.key
 src-tauri/.antigravity_master
 .antigravity_master
+src-tauri/src/
+src-tauri/Cargo.toml
+src-tauri/Cargo.lock
 
 # Python
 __pycache__/
