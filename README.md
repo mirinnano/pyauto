@@ -1,45 +1,43 @@
 # PyAuto Operator v4.0 PRO
 
-![License](https://img.shields.io/badge/license-Proprietary-red.svg)
-![Version](https://img.shields.io/badge/version-4.0.0_Enterprise-blue.svg)
-![Status](https://img.shields.io/badge/system-OPERATIONAL-green.svg)
+## 概要
+PyAuto Operatorは、高頻度取引およびゲーミング環境における視覚的インテリジェンス活用のために設計された、次世代のハイブリッド自動化プラットフォームです。
+RustとTauriによる堅牢なアーキテクチャを採用し、Pythonの柔軟性とRustの圧倒的なパフォーマンス・セキュリティを両立しています。
 
-**PyAuto Operator** is a next-generation hybrid automation platform designed for high-frequency trading and visual intelligence in gaming environments. Built on a **Rusty-Tauri** architecture, it combines the flexibility of Python with the raw performance and security of Rust.
+## システム構成 (The Fortress Architecture)
 
-## 🛡️ The Fortress Architecture (Security)
+本ソフトウェアは、軍事レベルの暗号化技術とハードウェアロックによるライセンス認証システムによって保護されています。
 
-This software is protected by military-grade encryption and hardware-locked licensing.
+*   **Ed25519 デジタル署名**: すべてのバイナリは暗号学的に署名され、改竄を検知します。
+*   **ハードウェアIDロック**: 許可された特定のハードウェア以外での動作を制限します。
+*   **不透明化されたコア**: Rustによるコアロジックはコンパイルされ、独自アルゴリズムは隠蔽されています。
 
-*   **Ed25519 Signatures**: Every copy is cryptographically signed.
-*   **HWID Locking**: Use is restricted to specific authorized hardware.
-*   **Opaque Core**: The Rust engine logic is compiled and stripped, ensuring proprietary algorithms remain secure.
+## 主な機能
 
-## ⚡ Core Features
+### ハイブリッド・エンジン (Rust + Python)
+*   **Eye (視覚)**: mssとEasyOCRを最適化したパイプラインにより、45FPS以上の視覚解析を実現。
+*   **Brain (頭脳)**: Rustによるゼロレイテンシのロジック処理と状態管理。
+*   **Hand (操作)**: Win32 APIを介したドライバレベルの入力シミュレーションにより、検知を回避。
 
-### Hybrid Engine (Rust + Python)
-*   **Eye (Python)**: Utilizing optimized `mss` and `EasyOCR` pipelines for 45FPS+ visual analysis.
-*   **Brain (Rust)**: Zero-latency logic processing and state management.
-*   **Hand (Win32)**: Direct driver-level input simulation for anti-detection.
+### 視覚的インテリジェンス
+*   **リアルタイムOCR**: ファジィ論理補正を用いた動的なテキスト認識。
+*   **スマートフィルタリング**: レアリティや価格に基づいたトリガー条件の判定。
+*   **Visual Overlay**: ゲーム画面上に解析結果をリアルタイムで描画するHUD機能。
 
-### Visual Intelligence
-*   **Real-time OCR**: Dynamic text recognition with fuzzy logic correction.
-*   **Smart Filtering**: Rarity-based and Price-based trigger conditions.
-*   **Visual Overlay**: Augmented Reality (AR) HUD rendering on top of the game stream.
+### コンプライアンスと安全性
+*   **免責同意**: 起動時に厳格な利用規約への同意を強制します。
+*   **人間的入力**: 人間の反応速度を模倣した確率的な遅延アルゴリズムを実装。
 
-### Compliance & Safety
-*   **Liability Waiver**: Strict non-negotiable agreement on startup.
-*   **Humanized Input**: Stochastic delay algorithms to mimic human reaction times.
+## インストールと更新
 
-## 📦 Installation & Updates
+本リポジトリは、コンパイル済みバイナリの配布センターとして機能します。
 
-This repository serves as the **Distribution Center** for the compiled binaries.
+1.  Releasesページから最新のインストーラーをダウンロードしてください。
+2.  セットアップを実行し、インストールを完了させてください。
+3.  初回起動時に、管理者から発行されたライセンスキーを入力してください。
 
-1.  Download the latest installer from [Releases](https://github.com/mirinnano/pyauto/releases).
-2.  Run `TopazConfig Setup.exe`.
-3.  Enter your **License Key** when prompted.
-
-*Updates are delivered automatically via the built-in OTA system.*
+更新は、内蔵されたOTA (Over-The-Air) システムによって自動的に配信されます。
 
 ---
-**WARNING**: This tool is strictly for educational and diagnostic purposes. The authors assume no liability for account suspensions or financial loss.
-*Copyright © 2025 Antigravity Systems. All Rights Reserved.*
+**免責事項**: 本ツールは教育および診断目的でのみ提供されています。本ツールの使用に起因するアカウント停止や金銭的損失について、開発者は一切の責任を負いません。
+Copyright (C) 2025 Antigravity Systems. All Rights Reserved.
