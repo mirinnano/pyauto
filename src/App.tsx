@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
+
 import { Terminal, Crosshair, Activity, Shield, Settings, Power, Trash2, Plus, Save, Bell, XCircle } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -31,6 +32,8 @@ interface AppConfig {
   notify_on_failure?: boolean;
   notify_on_error?: boolean;
   agreed_to_terms?: boolean;
+  gas_url?: string;
+  api_secret?: string;
 }
 
 interface LogEntry {
@@ -66,7 +69,9 @@ export default function App() {
     discord_webhook_url: "",
     notify_on_success: true,
     notify_on_failure: false,
-    notify_on_error: true
+    notify_on_error: true,
+    gas_url: "",
+    api_secret: ""
   });
 
   // Wizard State
@@ -147,6 +152,26 @@ export default function App() {
       }
     };
     checkLiability();
+
+    // Auto-Update Check
+    const checkUpdate = async () => {
+      try {
+        const { check } = await import('@tauri-apps/plugin-updater');
+        const { relaunch } = await import('@tauri-apps/plugin-process');
+
+        const update = await check();
+        if (update?.available) {
+          const yes = confirm(`Update to v${update.version} is available.\n\nRelease Notes:\n${update.body}\n\nInstall now?`);
+          if (yes) {
+            await update.downloadAndInstall();
+            await relaunch();
+          }
+        }
+      } catch (e) {
+        console.error("Update check failed:", e);
+      }
+    };
+    checkUpdate();
 
     return () => {
       unlistenStatus.then(f => f());
@@ -437,6 +462,31 @@ export default function App() {
                     className="w-full bg-black border border-zinc-700 p-1 text-center font-bold text-green-400 mt-1"
                   />
                 </div>
+                {/* GAS Uplink Config */}
+                <div className="col-span-2 border-t border-zinc-800 my-2 pt-2">
+                  <label className="text-xs font-bold text-zinc-500 mb-2 block">GOOGLE APPS SCRIPT CONFIGURATION</label>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-bold text-zinc-400">GAS WEB APP URL</label>
+                      <input
+                        value={config.gas_url || ""}
+                        onChange={e => setConfig({ ...config, gas_url: e.target.value })}
+                        placeholder="https://script.google.com/..."
+                        className="w-full bg-black border border-zinc-700 p-1 font-mono text-xs text-green-400 mt-1"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-xs font-bold text-zinc-400">API SECRET TOKEN</label>
+                      <input
+                        value={config.api_secret || ""}
+                        onChange={e => setConfig({ ...config, api_secret: e.target.value })}
+                        type="password"
+                        placeholder="Secret Token"
+                        className="w-full bg-black border border-zinc-700 p-1 font-mono text-xs text-green-400 mt-1"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="p-4 border-t border-green-900 bg-zinc-900 flex justify-end">
@@ -483,6 +533,35 @@ export default function App() {
               <Power className="w-4 h-4" />
               {status.includes("Started") ? "ABORT SEQUENCE" : "システム起動 (INITIATE)"}
             </button>
+
+            {/* MANUAL UPLOAD */}
+            <label className="flex items-center gap-2 px-3 py-1.5 border border-blue-500 bg-blue-900/20 text-blue-400 text-xs font-bold hover:bg-blue-900/40 cursor-pointer">
+              <input type="file" className="hidden" accept="image/png, image/jpeg" onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+
+                // Reset val
+                e.target.value = "";
+
+                try {
+                  setLogs(p => [{ timestamp: new Date().toLocaleTimeString(), log_type: "System", message: "Uploading..." }, ...p]);
+                  const arrayBuffer = await file.arrayBuffer();
+                  const bytes = Array.from(new Uint8Array(arrayBuffer));
+
+                  const res = await invoke<string>('manual_ingest', {
+                    fileName: file.name,
+                    fileData: bytes
+                  });
+
+                  alert(res);
+                  setLogs(p => [{ timestamp: new Date().toLocaleTimeString(), log_type: "Action", message: "Manual Upload Complete" }, ...p]);
+                } catch (err) {
+                  alert("Upload Error: " + err);
+                  console.error(err);
+                }
+              }} />
+              <span>UPLOAD EVIDENCE</span>
+            </label>
           </div>
 
           {/* CANVAS */}
